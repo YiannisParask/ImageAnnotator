@@ -119,7 +119,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"></ColumnDefinition>
                 <ColumnDefinition Width="5"></ColumnDefinition>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0" Orientation="Vertical">
@@ -142,7 +142,8 @@
             <GridSplitter Grid.Column="1"  HorizontalAlignment="Stretch" />
 
             <!-- We want to be able to zoom in -->
-            <ScrollViewer Grid.Column="2" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+            <!-- <ScrollViewer Grid.Column="2" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"> -->
+            <Border Grid.Column="2" ClipToBounds="True" Background="Transparent">
                 <!--
                     Elements in a grid canvas are overlayed on top each other that is
                     why we specify grid here
@@ -176,7 +177,7 @@
                         </Canvas.Style>
                     </Canvas>
                 </Grid>
-            </ScrollViewer>
+            </Border>
         </Grid>
 
         <TextBox Name="CodeText" Grid.Row="2" FontSize="12" IsReadOnly="True"/>
